@@ -1,4 +1,4 @@
-# Easy UNICODE #
+# EASY UNICODE #
 
 Simon Xu
 
@@ -10,14 +10,26 @@ Mar 2017
 
 Computers are built base on bytes
 
-File + Network, Everything...
+Everything is binary
 
 <br>
 Humans only recognize text
 
 ---
 
+## Charset ##
+
+Charset defines a mapping
+
+---
+
 ## ASCII ##
+
+ASCII = American Standard Code for Information Interchange
+
+A 7-bit charset, 0 ~ 127
+
+letter 'a' is assigned 97
 
      Dec Hex    Dec Hex    Dec Hex  Dec Hex  Dec Hex  Dec Hex   Dec Hex   Dec Hex
       0 00 NUL  16 10 DLE  32 20    48 30 0  64 40 @  80 50 P   96 60 `  112 70 p
@@ -39,12 +51,112 @@ Humans only recognize text
 
 ---
 
-## Language ##
+## In a real world... ##
 
-Humans speak different languages
+There're way more different language scripts
 
 Hello World
 
 你好世界
 
 नमस्ते दुनिया
+
+...
+
+---
+
+## Solution ? ##
+
+Invent different charsets: ISO-8859-X, GB1312, KOI8 ...
+
+<br>
+But how about multilingual text?
+
+---
+
+## Unicode ##
+
+Unicode is a computing industry standard
+
+Lastest version contains 128,000 characters covering 135 modern and hsitroic scripts and symbol sets
+
+---
+
+## A brief history ##
+
+Unicode started out 16-bits charset
+
+16bits = 65,536 distinct values
+
+<br>
+Sadly, it is still not enough...
+
+---
+
+## UCS ##
+
+UCS = Universal coded Character Set
+
+31bit, cover 100,000 characters
+
+---
+
+## Character ##
+A *character* is the smallest possible component of a text, depends on the lanuage or context
+
+<br>
+synmbol for electrical resistance: Ω (ohm)
+
+synmbol for capital letter omega in Greek: Ω
+
+---
+
+## Code Points ##
+Each character is UCS has a meaning and a number (code point)
+
+The character 'H' has the name 'LATIN CAPITAL LETTER H' and the number 72
+
+*Code points* are integer values, usually expressed in hex, with prefix 'U+'
+
+    U+0048    'H'    LATIN CAPITAL LETTER H 
+    U+0049    'I'    LATIN CAPITAL LETTER I 
+    U+004A    'J'    LATIN CAPITAL LETTER J
+    ...
+    
+---
+
+## More examples ... ##
+    U+090F  'ए'     Unicode Character 'DEVANAGARI LETTER E'
+    
+    U+091A  'च'     Unicode Character 'DEVANAGARI LETTER CA'
+    
+    U+4E2D  '中'    Unicode Han Character 'central; center, middle; in the midst of...
+    
+    U+56FD  '国'    Unicode Han Character 'nation, country, nation-state'
+   
+---
+
+## Encoding ##
+
+*Encoding* is the rule for translating a Unicode text into a sequence of bytes
+
+---
+
+## First approach ##
+
+Store the text into an array of integers,
+
+each of them is 31 bit, aka 4 bytes...
+
+<br>
+Way too inefficient
+
+Problem of endianness (platform dependent)
+
+---
+
+## UTF ##
+
+UTF = Unicode Transformation Formats
+
+UTF-8, UTF-16, UTF-32

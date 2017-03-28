@@ -160,3 +160,66 @@ Problem of endianness (platform dependent)
 UTF = Unicode Transformation Formats
 
 UTF-8, UTF-16, UTF-32
+
+---
+
+## UTF-8 ##
+
+A character encoding capable of encoding all possible characters
+
+* variable-length, uses 8-bit code units
+* backward compatible with ASCII
+* 88.7% of all web pages use UTF-8
+
+---
+
+## UTF-8 ##
+Number of bytes|Bits for code point|First code point|Last code point|Byte 1|Byte 2|Byte 3|Byte 4
+---|---|---|---|---|---|---|---
+1|7|U+0000|U+007F|0xxxxxxx|||
+2|11|U+0080|U+07FF|110xxxxx|10xxxxxx||	
+3|16|U+0800|U+FFFF|1110xxxx|10xxxxxx|10xxxxxx|
+4|21|U+10000|U+10FFFF|11110xxx|10xxxxxx|10xxxxxx|10xxxxxx
+
+---
+
+## UTF-8 ##
+
+Character|Code Point|Binary Code Point|Binary UTF-8|Hex UTF-8
+-|-|-|-|-
+€|U+20AC|0010 0000 1010 1100|1110 0010 1000 0010 1010 1100|E2 82 AC
+
+---
+
+## UTF-16 ##
+
+* code unit is 16-units
+* variable-length (one or two code units)
+
+---
+
+## UTF-16 ##
+
+Code points range | Remark
+-|-
+U+0000 - U+D7FF, U+E000 - U+FFFF | equal to code points
+U+10000 - U+10FFFF | surrogate pairs
+U+D800 - U+DFFF | surrogates
+
+---
+
+## Endianness ##
+
+UTF-16BE, UTF-16LE
+
+<br>
+BOM = Byte Order Mark = U+FEFF
+
+---
+
+## UTF-16 ##
+
+Character|Code Point|Binary Code Point|Hex UTF-16|Hex UTF-16BE|Hex UTF-16LE
+-|-|-|-|-
+€|`U+20AC`|`0010 0000 1010 1100`|`20 AC`|`20 AC`|`AC 20`
+🐼|`U+1F43C`||||
